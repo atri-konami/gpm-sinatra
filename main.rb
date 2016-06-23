@@ -6,7 +6,7 @@ require 'dotenv'
 Dotenv.load
 
 configure do
-    use Rack::Session::Cookie
+    use Rack::Session::Pool
 end
 
 before do
@@ -18,7 +18,7 @@ before do
     )
 end
 
-get "/auth" do
+get "/" do
     session[:img_url] = params[:img_url]
     session[:text] = params[:text]
     request_token = @consumer.get_request_token(oauth_callback:ENV["CALLBACK"])
