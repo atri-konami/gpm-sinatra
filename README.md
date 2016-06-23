@@ -1,0 +1,2 @@
+# gpm-sinatra
+GooglePlayMusicのNowPlayingをTweet
