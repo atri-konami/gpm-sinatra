@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPM NowPlaying</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        function submit() {
+            document.xform.submit();
+            window.close();
+        }
+        $(function(){
+            var countMax = 140;
+            $('textarea').bind('keydown keyup keypress change',function(){
+                var thisValueLength = $(this).val().length;
+                var countDown = countMax - thisValueLength;
+                $('.count').html(countDown);
+                if(countDown < 0){
+                    $('.count').css({color:'#ff0000',fontWeight:'bold'});
+                    $('button').prop('disabled', true);
+                } else {
+                    $('.count').css({color:'#000000',fontWeight:'normal'});
+                    $('button').prop('disabled', false);
+                }
+            });
+            $(window).load(function(){
+                $('.count').html(countMax - $('textarea').val().length);
+            });
+        });
+        </script>
+        <style type="text/css">
+        img {
+            width: 200px;
+            height: 200px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        button {
+            margin-top: 5px;
+            float: right !important;
+        }
+        span {
+            display: inline-block;
+            float: right;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <img class="center-block" src="<%= session["img_url"] %>">
+            <form name="xform" action="<%= url('/post') %>" method="post">
+                <textarea class="form-control" rows="3" name="text"><%= session['text']%></textarea>
+                <input type="hidden" name="img_url" value="<%= session["img_url"] %>">
+                <button type="submit" class="btn btn-info" onClick="submit()">Tweet</button>
+                <span class="count"></span>
+            </form>
+        </div>
+    </body>
+</html>
