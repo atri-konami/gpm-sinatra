@@ -6,7 +6,7 @@ require 'dotenv'
 Dotenv.load
 
 configure do
-    use Rack::Session::Pool
+    use Rack::Session::Cookie, secret: Digest::SHA256.hexdigest(rand.to_s)
 end
 
 before do
