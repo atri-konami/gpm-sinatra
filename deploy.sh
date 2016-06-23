@@ -1,3 +1,3 @@
 mkdir -p tmp/pids
 mkdir -p log
-bundle exec uncorn -E production -c unicorn.rb -D
+bundle exec unicorn -E production -c unicorn.rb -D
