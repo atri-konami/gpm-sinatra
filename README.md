@@ -8,7 +8,7 @@ Webサーバ: nginx/1.12.1 (Ubuntu) built with OpenSSL 1.0.2g  1 Mar 2016
 
 Ruby: 2.5.1
 
-Webブラウザ: バージョン: 65.0.3325.181（Official Build） （64 ビット）
+Webブラウザ: Google Chrome バージョン: 65.0.3325.181（Official Build） （64 ビット）
 
 # 利用方法(クライアント)
 
