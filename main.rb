@@ -81,12 +81,11 @@ post "/post" do
         Tempfile.open("img") {|f|
             f.write(res.body)
             f.rewind
-            media_id = client.upload(f)
+            client.update_with_media(text, f)
         }
+    else
+        client.update(text)
     end
 
-    opt = {}
-    opt.merge!(media_ids: media_id) if media_id > 0
-    client.update(text, opt)
     erb :success
 end
