@@ -69,7 +69,8 @@
                 <input type="hidden" name="img_url" value="<%= session["img_url"] %>">
                 <button type="submit" class="btn btn-info" onClick="submit()">Tweet</button>
                 <span class="count"></span>
-                <span style="float:left;">Signed in as <a href="https://twitter.com/<%= @screen_name %>" target="_blank"><%= @screen_name %></a></span>
+                <p>Signed in as <a href="https://twitter.com/<%= @screen_name %>" target="_blank"><%= @screen_name %></a></span>
+                <p><a href="/?force_login=true">Change Account?</a></span>
             </form>
         </div>
     </body>

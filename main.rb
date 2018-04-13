@@ -13,17 +13,20 @@ before do
     @consumer = OAuth::Consumer.new(
         ENV["CONSUMER_KEY"],
         ENV["CONSUMER_SECRET"],
-        site: "https://api.twitter.com"
+        site: "https://api.twitter.com",
+        authorize_path: "/oauth/authenticate"
     )
 end
 
 get "/" do
-    session[:img_url] = params[:img_url]
-    session[:text] = params[:text]
+    force_login = params[:force_login] == "true"
+    session[:img_url] = params[:img_url] if ! force_login
+    session[:text] = params[:text] if ! force_login
     request_token = @consumer.get_request_token(oauth_callback:ENV["CALLBACK"])
     session[:request_token] = request_token.token
     session[:request_token_secret] = request_token.secret
-    redirect to(request_token.authorize_url(oauth_callback:ENV["CALLBACK"]))
+
+    redirect to(request_token.authorize_url(force_login: force_login))
 end
 
 get "/auth/callback" do
