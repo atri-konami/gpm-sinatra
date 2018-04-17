@@ -16,7 +16,7 @@ Webブラウザ: Google Chrome バージョン: 65.0.3325.181（Official Build�
 
 2. 任意の音楽を再生する![Imgur](https://i.imgur.com/VBaK4vS.png)
 
-3. bookmarkletを実行する(bookmarkletの登録は[こちら](https://atri-konami.github.io/product/gpm-sinatra)から，もしくはjs/bookmarklet.min.jsのソースに"javascript:"を追加して登録)
+3. bookmarkletを実行する(bookmarkletの登録は[こちら](https://atri-konami.github.io/product/gpm-sinatra)から，もしくはjs/bookmarklet.min.jsのソースに"javascript:"を追加して登録)，もしくは後述のChrome拡張機能を使う．
 
 4. Twitterの認証を行う
 
