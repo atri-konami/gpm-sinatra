@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "GPM-NowPlaying",
+    "version": "0.0.1",
+
+    "description": "Tweet the music description you are now playing with its cover image",
+    "content_scripts":[
+        {
+            "matches": ["https://play.google.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+
+    "page_action": {},
+    "background": {
+        "scripts": ["event.js"],
+        "persistent": false
+    },
+
+    "permissions": [
+        "tabs",
+        "background"
+    ]
+}
+
