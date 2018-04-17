@@ -22,6 +22,11 @@ Webブラウザ: Google Chrome バージョン: 65.0.3325.181（Official Build�
 
 5. Tweetする![Imgur](https://i.imgur.com/W9cyStr.png)
 
+# Chrome拡張機能
+
+Chromeをお使いの場合は拡張機能が使えます．
+[Releases](https://github.com/atri-konami/gpm-sinatra/releases)から最新のcrxファイルをダウンロードしてインストールしてください．
+
 # 利用方法(サーバ)
 
 Under construction.
