@@ -19,6 +19,9 @@ before do
 end
 
 get "/" do
+    if !params[:img_url] || !params[:text] then
+        halt 400
+    end
     force_login = params[:force_login] == "true"
     session[:img_url] = params[:img_url] if ! force_login
     session[:text] = params[:text] if ! force_login
