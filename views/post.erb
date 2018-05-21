@@ -32,7 +32,15 @@
                 }
             });
             $(window).load(function(){
-                $('.count').html(countMax - $('textarea').val().length);
+                var countDown = countMax - $('textarea').val().length;
+                $('.count').html(countDown);
+                if(countDown < 0){
+                    $('.count').css({color:'#ff0000',fontWeight:'bold'});
+                    $('button').prop('disabled', true);
+                } else {
+                    $('.count').css({color:'#000000',fontWeight:'normal'});
+                    $('button').prop('disabled', false);
+                }
             });
         });
         </script>
