@@ -15,7 +15,7 @@ chrome.pageAction.onClicked.addListener(
             (res) => { 
                 console.log(res);
                 if (res.ok) {
-                    window.open('http://gpm.atri-konami.mydns.jp/?text=' + res.text + '&img_url=' + res.img, '', 'width=550, height=420');
+                    window.open('https://gpm.atri-konami.mydns.jp/?text=' + res.text + '&img_url=' + res.img, '', 'width=550, height=420');
                 }
             }
         );

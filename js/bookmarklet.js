@@ -16,5 +16,5 @@
     artist = artist.innerHTML;
     img = img.src.split('=')[0];
     var text = encodeURIComponent('Now playing: ' + song + ' - ' + artist + album + ' #NowPlaying #GPMNowPlaying');
-    window.open('http://gpm.atri-konami.mydns.jp/?text=' + text + '&img_url=' + img, '', 'width=550, height=420');
+    window.open('https://gpm.atri-konami.mydns.jp/?text=' + text + '&img_url=' + img, '', 'width=550, height=420');
 })();

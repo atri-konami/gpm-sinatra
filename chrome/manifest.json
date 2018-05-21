@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "GPM-NowPlaying",
-    "version": "0.0.1",
+    "version": "0.0.2",
 
     "description": "Tweet the music description you are now playing with its cover image",
     "content_scripts":[
