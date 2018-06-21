@@ -1,6 +1,8 @@
 # gpm-sinatra
 GooglePlayMusicのNowPlayingをTweet
 
+運用状況については[Twitter](https://twitter.com/atri_bot)で発信してます．
+
 # (現在の)動作環境
 OS: Ubuntu 17.10
 
