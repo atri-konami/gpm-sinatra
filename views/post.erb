@@ -17,10 +17,23 @@
                 document.xform.submit();
                 window.close();
             }
+            function mylength(str) {
+                var count = 0;
+                for(var i = 0; i < str.length; i++) {
+                    var c = str.charCodeAt(i);
+                    console.log(c);
+                    if (c >= 256) {
+                        count += 2;
+                    } else {
+                        count ++;
+                    }
+                }
+                return count;
+            }
             $(function(){
-                var countMax = 140;
+                var countMax = 280;
                 $('textarea').bind('keydown keyup keypress change',function(){
-                    var thisValueLength = $(this).val().length;
+                    var thisValueLength = mylength($(this).val())
                     var countDown = countMax - thisValueLength;
                     $('.count').html(countDown);
                     if(countDown < 0){
@@ -32,7 +45,7 @@
                     }
                 });
                 $(window).load(function(){
-                    var countDown = countMax - $('textarea').val().length;
+                    var countDown = countMax - mylength($('textarea').val());
                     $('.count').html(countDown);
                     if(countDown < 0){
                         $('.count').css({color:'#ff0000',fontWeight:'bold'});
