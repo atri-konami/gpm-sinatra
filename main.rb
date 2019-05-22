@@ -19,13 +19,17 @@ before do
 end
 
 get "/" do
-    if !params[:img_url] || !params[:text] then
+    force_login = params[:force_login] == "true"
+
+    if !force_login && (!params[:img_url] || !params[:text]) then
         halt 400
     end
-    force_login = params[:force_login] == "true"
+ 
+    callback = "#{request.env['HTTP_X_FORWARDED_PROTO']}://#{request.env['HTTP_X_FORWARDED_HOST']}/auth/callback"
+    puts callback
     session[:img_url] = params[:img_url] if ! force_login
     session[:text] = params[:text] if ! force_login
-    request_token = @consumer.get_request_token(oauth_callback:ENV["CALLBACK"])
+    request_token = @consumer.get_request_token(oauth_callback:callback)
     session[:request_token] = request_token.token
     session[:request_token_secret] = request_token.secret
 
