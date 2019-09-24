@@ -94,5 +94,8 @@ post "/post" do
         client.update(text)
     end
 
+    puts "#{client.user.screen_name}"
+    puts "#{text}"
+
     erb :success
 end
